@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Project_EVA</string>
+    <string name="title_activity_feed">FeedActivity</string>
+    <string name="title_activity_testttttttttttttt">testtttttttttttttActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+</resources>
