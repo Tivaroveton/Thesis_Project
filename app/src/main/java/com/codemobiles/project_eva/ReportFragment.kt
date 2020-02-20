@@ -2,6 +2,7 @@ package com.codemobiles.project_eva
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,11 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 
 import com.codemobiles.project_eva.dummy.DummyContent
 import com.codemobiles.project_eva.dummy.DummyContent.DummyItem
 import kotlinx.android.synthetic.main.content_feed.*
 import kotlinx.android.synthetic.main.fragment_report.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * A fragment representing a list of Items.
@@ -22,6 +27,8 @@ import kotlinx.android.synthetic.main.fragment_report.view.*
  */
 class ReportFragment : Fragment() {
 
+
+    val mDataArray = arrayListOf<Condo>()
     // TODO: Customize parameters
     private var columnCount = 1
 
@@ -33,30 +40,32 @@ class ReportFragment : Fragment() {
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
+
     }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mRecyclerView.layoutManager = LinearLayoutManager(activity)
-        mRecyclerView.adapter = CustomAdater()
+        mRecyclerView.adapter = CustomAdapter()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_report_list, container, false)
+        val view = inflater.inflate(R.layout.content_feed, container, false)
 
         // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = MyReportRecyclerViewAdapter(DummyContent.ITEMS, listener)
-            }
-        }
+//        if (view is RecyclerView) {
+//            with(view) {
+//                layoutManager = when {
+//                    columnCount <= 1 -> LinearLayoutManager(context)
+//                    else -> GridLayoutManager(context, columnCount)
+//                }
+//                adapter = MyReportRecyclerViewAdapter(DummyContent.ITEMS, listener)
+//            }
+//        }
         return view
     }
 
@@ -104,23 +113,33 @@ class ReportFragment : Fragment() {
                 }
             }
     }
-    inner class CustomAdater : RecyclerView.Adapter<CustomHolder>() {
+
+    inner class CustomAdapter : RecyclerView.Adapter<CustomHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomHolder {
-            val layout = LayoutInflater.from(activity).inflate(R.layout.fragment_report_list, null, false)
+            val layout = LayoutInflater.from(activity).inflate(R.layout.content_feed, null, false)
             return CustomHolder(layout)
         }
 
         override fun getItemCount(): Int {
-            return 100
+            return mDataArray.count()
         }
 
         override fun onBindViewHolder(holder: CustomHolder, position: Int) {
+            val item = mDataArray[position]
             holder.itemView.item_list_title.text = "CodeMobiles ${position}"
-            }
+//            Glide.with(activity!!).load(item.youtube_image).into(holder.itemView.item_list_youtube_image)
+        }
 
     }
 
     class CustomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+//        init {
+//
+//            itemView.setOnClickListener { v->
+//                val item = v.getTag(R.id.item_list_title) as Youtube
+////               Toast.makeText(activity, item.title, Toast.LENGTH_LONG).show()
+//                YouTubeApp.startVideo(activity!!,item.id)
+//            }
+//        }
     }
 }

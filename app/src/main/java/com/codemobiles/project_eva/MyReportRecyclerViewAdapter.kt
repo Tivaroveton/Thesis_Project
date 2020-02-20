@@ -1,5 +1,6 @@
 package com.codemobiles.project_eva
 
+import android.net.Uri
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,7 @@ import com.codemobiles.project_eva.dummy.DummyContent.DummyItem
 
 import kotlinx.android.synthetic.main.fragment_report.view.*
 
-/**
+/**List<DummyItem>
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
  * specified [OnListFragmentInteractionListener].
  * TODO: Replace the implementation with code for your data type.
@@ -49,6 +50,7 @@ class MyReportRecyclerViewAdapter(
             setOnClickListener(mOnClickListener)
         }
     }
+
 
     override fun getItemCount(): Int = mValues.size
 

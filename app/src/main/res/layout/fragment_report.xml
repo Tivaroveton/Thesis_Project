@@ -10,13 +10,12 @@
     android:paddingTop="8dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="394dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         card_view:cardBackgroundColor="#cdffffff"
         card_view:cardCornerRadius="4dp"
-        card_view:cardElevation="2sp"
-        card_view:cardUseCompatPadding="true">
+        card_view:cardElevation="2sp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,13 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp">
-
-                <!--                <ImageView-->
-                <!--                    android:id="@+id/item_list_avatar"-->
-                <!--                    android:layout_width="50dp"-->
-                <!--                    android:layout_height="50dp"-->
-                <!--                    android:layout_marginRight="12dp"-->
-                <!--                    tools:src="@drawable/cmdev_circle_logo" />-->
 
                 <TextView
                     android:id="@+id/item_list_title"
@@ -46,7 +38,7 @@
                     android:textColor="#dc000000"
                     android:textSize="24sp"
                     tools:text="LM-fa541935" />
-                <!--                android:layout_toRightOf="@+id/item_list_avatar"-->
+
                 <TextView
                     android:id="@+id/item_list_subtitle"
                     android:layout_width="match_parent"
