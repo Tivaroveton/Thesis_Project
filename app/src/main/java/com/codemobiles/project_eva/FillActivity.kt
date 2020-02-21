@@ -1,11 +1,8 @@
 package com.codemobiles.project_eva
 
-import android.R
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_feed.*
@@ -18,8 +15,31 @@ class FillActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(com.codemobiles.project_eva.R.layout.activity_fill)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        view_pager.adapter = sectionsPagerAdapter
+
+//        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+//        view_pager.adapter = sectionsPagerAdapter
+
+        val languages = resources.getStringArray(R.array.District)
+        val spinner = findViewById<Spinner>(R.id.Spinner_type)
+        if (spinner != null) {
+            val adapter = ArrayAdapter(
+                this,
+                R.layout.spinner_item, languages
+            )
+            spinner.adapter = adapter
+        }
+
+        radio_group.setOnCheckedChangeListener(
+            RadioGroup.OnCheckedChangeListener { group, checkedId ->
+                val radio: RadioButton = findViewById(checkedId)
+                Toast.makeText(
+                    applicationContext, " On checked change :" +
+                            " ${radio.text}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            })
+
+
         //        tabs.setupWithViewPager(viewPager)
 
 //        view_pager.offscreenPageLimit = 3
@@ -45,9 +65,19 @@ class FillActivity : AppCompatActivity() {
 //                            "" + languages[position], Toast.LENGTH_SHORT).show()
 //            }
 //        }
+
+
+    }
+
+    fun radio_button_click(view: View) {
+        // Get the clicked radio button instance
+//        val radio: RadioButton = findViewById(radio_group.checkedRadioButtonId)
+//        Toast.makeText(
+//            applicationContext, "On click : ${radio.text}",
+//            Toast.LENGTH_SHORT
+//        ).show()
     }
 
 
-
-
 }
+

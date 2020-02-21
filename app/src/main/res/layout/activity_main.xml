@@ -75,13 +75,6 @@
             android:onClick="onClickLogin"
             android:text="Login" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#D35400"
-            android:onClick="onClickRegister"
-            android:text="Register" />
-
 
     </LinearLayout>
 
