@@ -3,6 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingTop="10dp">
 
     <LinearLayout
@@ -557,6 +558,42 @@
 
 
         <!--        Facilities-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal">
+
+        <com.skydoves.elasticviews.ElasticCheckButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:background="#40739e"
+            android:text="ล็อบบี้"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:checkButton_cornerRadius="4dp"
+            app:checkButton_alpha="0.4"
+            app:checkButton_duration="400"
+            app:checkButton_isChecked="true"
+            app:checkButton_scale="0.9" />
+
+        <com.skydoves.elasticviews.ElasticCheckButton
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:background="#40739e"
+            android:text="สระว่ายน้ำ"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:checkButton_cornerRadius="4dp"
+            app:checkButton_alpha="0.4"
+            app:checkButton_duration="400"
+            app:checkButton_scale="0.9" />
+
+    </LinearLayout>
+
+
         <LinearLayout
 
             android:layout_width="match_parent"

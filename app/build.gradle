@@ -82,4 +82,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:+'
 
     implementation 'androidx.appcompat:appcompat:+'
+
+    //Elastic button
+    implementation "com.github.skydoves:elasticviews:2.0.7"
 }
