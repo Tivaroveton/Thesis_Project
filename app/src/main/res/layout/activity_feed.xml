@@ -8,9 +8,11 @@
     tools:context=".FeedActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/fragment_report"
+        android:onClick="onClickFeed"
+        tools:listitem="@layout/fragment_feed"
         />
 
 </LinearLayout>

@@ -70,13 +70,308 @@
         <item>หนองแขม</item>
         <item>หลักสี่</item>
         <item>ห้วยขวาง</item>
+    </string-array>
+
+    <!--Area Of District-->
+    <string-array name="คลองเตย">
+        <item>คลองเตย</item>
+        <item>คลองตัน</item>
+        <item>พระโขนง</item>
+    </string-array>
+    <string-array name="คลองสาน">
+        <item>คลองต้นไทร</item>
+        <item>คลองสาน</item>
+        <item>บางลำภูล่าง</item>
+        <item>สมเด็จเจ้าพระยา</item>
+    </string-array>
+    <string-array name="คลองสามวา">
+        <item>ทรายกองดิน</item>
+        <item>ทรายกองดินใต้</item>
+        <item>บางชัน</item>
+        <item>สามวาตะวันตก</item>
+        <item>สามวาตะวันออก</item>
+    </string-array>
+    <string-array name="คันนายาว">
+        <item>คันนายาว</item>
+    </string-array>
+    <string-array name="จตุจักร">
+        <item>จตุจักร</item>
+        <item>จอมพล</item>
+        <item>จันทรเกษม</item>
+        <item>ลาดยาว</item>
+        <item>เสนานิคม</item>
+    </string-array>
+    <string-array name="จอมทอง">
+        <item>จอมทอง</item>
+        <item>บางขุนเทียน</item>
+        <item>บางค้อ</item>
+        <item>บางมด</item>
+    </string-array>
+    <string-array name="ดอนเมือง">
+        <item>สีกัน</item>
+    </string-array>
+    <string-array name="ดินแดง">
+        <item>ดินแดง</item>
+    </string-array>
+    <string-array name="ดุสิต">
+        <item>ดุสิต</item>
+        <item>ถนนนครไชยศรี</item>
+        <item>วชิรพยาบาล</item>
+        <item>สวนจิตรลดา</item>
+        <item>สี่แยกมหานาค</item>
+    </string-array>
+    <string-array name="ตลิ่งชัน">
+        <item>คลองชักพระ</item>
+        <item>ฉิมพลี</item>
+        <item>ตลิ่งชัน</item>
+        <item>บางเชือกหนัง</item>
+        <item>บางพรม</item>
+        <item>บางระมาด</item>
+    </string-array>
+    <string-array name="ทวีวัฒนา">
+        <item>ทวีวัฒนา</item>
+        <item>ศาลาธรรมสพน์</item>
+    </string-array>
+    <string-array name="ทุ่งครุ">
+        <item>ทุ่งครุ</item>
+        <item>บางมด</item>
+    </string-array>
+    <string-array name="ธนบุรี">
+        <item>ดาวคะนอง</item>
+        <item>ตลาดพลู</item>
+        <item>บางยี่เรือ</item>
+        <item>บุคคโล</item>
+        <item>วัดกัลยาณ์</item>
+        <item>สำเหร่</item>
+        <item>หิรัญรูจี</item>
+    </string-array>
+    <string-array name="บางเขน">
+        <item>ท่าแร้ง</item>
+        <item>อนุสาวรีย์</item>
+    </string-array>
+    <string-array name="บางแค">
+        <item>บางแค</item>
+        <item>บางแคเหนือ</item>
+        <item>บางไผ่</item>
+        <item>หลักสอง</item>
+    </string-array>
+    <string-array name="บางกอกใหญ่">
+        <item>วัดท่าพระ</item>
+        <item>วัดอรุณ</item>
+    </string-array>
+    <string-array name="บางกอกน้อย">
+        <item>บางขุนนนท์</item>
+        <item>บางขุนศรี</item>
+        <item>บ้านช่างหล่อ</item>
+        <item>ศิริราช</item>
+        <item>อรุณอมรินทร์</item>
+    </string-array>
+    <string-array name="บางกะปิ">
+        <item>คลองจั่น</item>
+        <item>หัวหมาก</item>
+    </string-array>
+    <string-array name="บางขุนเทียน">
+        <item>ท่าข้าม</item>
+        <item>แสมดำ</item>
+    </string-array>
+    <string-array name="บางคอแหลม">
+        <item>บางโคล่</item>
+        <item>บางคอแหลม</item>
+        <item>วัดพระยาไกร</item>
+    </string-array>
+    <string-array name="บางซื่อ">
+        <item>บางซื่อ</item>
+    </string-array>
+    <string-array name="บางนา">
+        <item>บางนา</item>
+    </string-array>
+    <string-array name="บางบอน">
+        <item>บางบอน</item>
+    </string-array>
+    <string-array name="บางพลัด">
+        <item>บางพลัด</item>
+        <item>บางบำหรุ</item>
+        <item>บางยี่ขัน</item>
+        <item>บางอ้อ</item>
+    </string-array>
+    <string-array name="บางรัก">
+        <item>บางรัก</item>
+        <item>มหาพฤฒาราม</item>
+        <item>สี่พระยา</item>
+        <item>สีลม</item>
+        <item>สุริยวงศ์</item>
+    </string-array>
+    <string-array name="บึงกุ่ม">
+        <item>คลองกุ่ม</item>
+    </string-array>
+    <string-array name="ปทุมวัน">
+        <item>ปทุมวัน</item>
+        <item>รองเมือง</item>
+        <item>ลุมพินี</item>
+        <item>วังใหม่</item>
+    </string-array>
+    <string-array name="ประเวศ">
+        <item>ดอกไม้</item>
+        <item>ประเวศ</item>
+        <item>หนองบอน</item>
+    </string-array>
+    <string-array name="ป้อมปราบศัตรูพ่าย">
+        <item>คลองมหานาค</item>
+        <item>บ้านบาตร</item>
+        <item>ป้อมปราบ</item>
+        <item>วัดเทพศิรินทร์</item>
+        <item>วัดโสมนัส</item>
+    </string-array>
+    <string-array name="พญาไท">
+        <item>สามเสนใน</item>
+    </string-array>
+    <string-array name="พระโขนง">
+        <item>บางจาก</item>
+    </string-array>
+    <string-array name="พระนคร">
+        <item>ชนะสงคราม</item>
+        <item>ตลาดยอด</item>
+        <item>บวรนิเวศ</item>
+        <item>บางขุนพรหม</item>
+        <item>บ้านพานถม</item>
+        <item>พระบรมมหาราชวัง</item>
+        <item>วังบูรพาภิรมย์</item>
+        <item>วัดราชบพิธ</item>
+        <item>วัดสามพระยา</item>
+        <item>ศาลเจ้าพ่อเสือ</item>
+        <item>สำราญราษฎร์</item>
+        <item>เสาชิงช้า</item>
+    </string-array>
+    <string-array name="ภาษีเจริญ">
+        <item>คลองขวาง</item>
+        <item>คูหาสวรรค์</item>
+        <item>บางจาก</item>
+        <item>บางด้วน</item>
+        <item>บางแวก</item>
+        <item>บางหว้า</item>
+        <item>ปากคลองภาษีเจริญ</item>0
+    </string-array>
+    <string-array name="มีนบุรี">
+        <item>มีนบุรี</item>
+        <item>แสนแสบ</item>
+    </string-array>
+    <string-array name="ยานนาวา">
+        <item>ช่องนนทรี</item>
+        <item>บางโพงพาง</item>
+    </string-array>
+    <string-array name="ราชเทวี">
+        <item>ถนนเพชรบุรี</item>
+        <item>ถนนพญาไท</item>
+        <item>ทุ่งพญาไท</item>
+        <item>มักกะสัน</item>
+    </string-array>
+    <string-array name="ราษฎร์บูรณะ">
+        <item>บางปะกอก</item>
+        <item>ราษฎร์บูรณะ</item>
+    </string-array>
+    <string-array name="ลาดกระบัง">
+        <item>ขุมทอง</item>
+        <item>คลองสองต้นนุ่น</item>
+        <item>คลองสามประเวศ</item>
+        <item>ทับยาว</item>
+        <item>ลาดกระบัง</item>
+        <item>ลำปลาทิว</item>
+    </string-array>
+    <string-array name="ลาดพร้าว">
+        <item>ลาดพร้าว</item>
+        <item>จรเข้บัว</item>
+    </string-array>
+    <string-array name="วังทองหลาง">
+        <item>วังทองหลาง</item>
+    </string-array>
+    <string-array name="วัฒนา">
+        <item>คลองเตยเหนือ</item>
+        <item>คลองตันเหนือ</item>
+        <item>พระโขนงเหนือ</item>
+    </string-array>
+    <string-array name="สวนหลวง">
+        <item>สวนหลวง</item>
+    </string-array>
+    <string-array name="สะพานสูง">
+        <item>สะพานสูง</item>
+    </string-array>
+    <string-array name="สัมพันธวงศ์">
+        <item>สัมพันธวงศ์</item>
+        <item>จักรวรรดิ</item>
+        <item>ตลาดน้อย</item>
+    </string-array>
+    <string-array name="สาทร">
+        <item>ทุ่งมหาเมฆ</item>
+        <item>ทุ่งวัดดอน</item>
+        <item>ยานนาวา</item>
+    </string-array>
+    <string-array name="สายไหม">
+        <item>สายไหม</item>
+        <item>คลองถนน</item>
+        <item>ออเงิน</item>
+    </string-array>
+    <string-array name="หนองแขม">
+        <item>หนองแขม</item>
+        <item>หนองค้างพลู</item>
+    </string-array>
+    <string-array name="หนองจอก">
+        <item>กระทุ่มราย</item>
+        <item>คลองสิบ</item>
+        <item>คลองสิบสอง</item>
+        <item>คู้ฝั่งเหนือ</item>
+        <item>โคกแฝด</item>
+        <item>ลำต้อยติ่ง</item>
+        <item>ลำผักชี</item>
+        <item>หนองจอก</item>
+    </string-array>
+    <string-array name="หลักสี่">
+        <item>ตลาดบางเขน</item>
+        <item>ทุ่งสองห้อง</item>
+    </string-array>
+    <string-array name="ห้วยขวาง">
+        <item>บางกะปิ</item>
+        <item>สามเสนนอก</item>
+        <item>ห้วยขวาง</item>
+    </string-array>
+
+
+    <string-array name="สภาพอาคาร">
+        <item>ดีเยี่ยม</item>
+        <item>ดี</item>
+        <item>พอใช้</item>
+        <item>ควรปรับปรุง</item>
+    </string-array>
+
+    <string-array name="ข้อบังคับผัง">
+        <item>สีน้ำตาล (ที่อยู่อาศัยหนาแน่นมาก) </item>
+        <item>สีส้ม (ที่อยู่อาศัยหนาแน่นปานกลาง) </item>
+        <item>สีเหลือง (ที่อยู่อาศัยหนาแน่นน้อย)</item>
+        <item>สีแดง  (พาณิชยกรรม) </item>
+    </string-array>
+
+    <string-array name="ประเภทห้อง">
+        <item>Studio</item>
+        <item>1 ห้องนอน/1 ห้องน้ำ</item>
+        <item>2 ห้องนอน/1 ห้องน้ำ</item>
+        <item>2 ห้องนอน/2 ห้องน้ำ</item>
+        <item>3 ห้องนอน/3 ห้องน้ำ</item>
+        <item>Duplex</item>
+        <item>Penthouse</item>
 
     </string-array>
 
-    <string-array name="Area">
-        <item>Java</item>
-        <item>Kotlin</item>
-        <item>Swift</item>
-        <item>Perl</item>
+    <string-array name="ตำแหน่งห้อง">
+        <item>ห้องกลาง</item>
+        <item>ห้องมุม</item>
+        <item>ห้องริม</item>
     </string-array>
+
+    <string-array name="วิวห้อง">
+        <item>วิวติดอาคาร/ทางด่วน</item>
+        <item>วิวเมือง/เปิดโล่ง</item>
+        <item>วิวสระว่ายน้ำ/สวน</item>
+        <item>วิวแม่น้ำ</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+
 </resources>

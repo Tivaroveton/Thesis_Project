@@ -4,10 +4,10 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toFile
-import com.bumptech.glide.Glide
 import com.jaiselrahman.filepicker.activity.FilePickerActivity
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -27,11 +27,17 @@ import retrofit2.Response
 
 class MenuActivity : AppCompatActivity() {
 
+//    private val textView: TextView = findViewById(R.id.menuHeader)
     lateinit var mEasyImage: EasyImage
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
+        val id2 : Intent = Intent.getIntentOld("id")
+        val id:String? = intent.getStringExtra("id")
+//        textView.text = id2.toString()
+        checkRuntimePermission()
     }
 
     private fun checkRuntimePermission() {
@@ -78,10 +84,19 @@ class MenuActivity : AppCompatActivity() {
         mEasyImage.openCameraForImage(this)
     }
 
+    fun onClickFill(view: View){
+        val intent = Intent(this, FillActivity::class.java)
+        startActivity(intent)
+    }
+
     fun onClickGallery(view: View) {
         mEasyImage.openGallery(this)
     }
 
+    fun onClickMap(view: View) {
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
+    }
     var FILE_REQUEST_CODE = 10
     fun onClickFile(view: View) {
         val intent = Intent(this, FilePickerActivity::class.java)
@@ -127,11 +142,9 @@ class MenuActivity : AppCompatActivity() {
 
     private fun upload(_fileName: String, _baos: ByteArray) {
 
-
         // Sent Data to server
         val _username = "admin"
-        val _password = "i love codemobiles"
-
+        val _password = "admin"
 
         val _reqFile = RequestBody.create(MediaType.parse("multipart/form-data"), _baos)
         val _body = MultipartBody.Part.createFormData("userfile", _fileName, _reqFile)  //images

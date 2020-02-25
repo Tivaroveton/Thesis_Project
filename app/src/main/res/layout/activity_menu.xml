@@ -7,19 +7,19 @@
     android:orientation="vertical"
     tools:context=".FeedActivity">
 
-<!--        <com.google.android.material.appbar.AppBarLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:theme="@style/AppTheme.AppBarOverlay">-->
+    <!--        <com.google.android.material.appbar.AppBarLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:theme="@style/AppTheme.AppBarOverlay">-->
 
-<!--            <androidx.appcompat.widget.Toolbar-->
-<!--                android:id="@+id/toolbar"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="?attr/actionBarSize"-->
-<!--                android:background="?attr/colorPrimary"-->
-<!--                app:popupTheme="@style/AppTheme.PopupOverlay" />-->
+    <!--            <androidx.appcompat.widget.Toolbar-->
+    <!--                android:id="@+id/toolbar"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="?attr/actionBarSize"-->
+    <!--                android:background="?attr/colorPrimary"-->
+    <!--                app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
-<!--        </com.google.android.material.appbar.AppBarLayout>-->
+    <!--        </com.google.android.material.appbar.AppBarLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,12 +32,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/menuHeader"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="#2471A3"
                 android:gravity="center"
-                android:text="LM-as123794"
+                android:text="LM-fa-001"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"></TextView>
         </LinearLayout>
@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/condo_ex2" />
+                android:src="@drawable/condo_ex2" />
 
         </LinearLayout>
 
@@ -65,8 +65,8 @@
                 android:id="@+id/button"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="60dp"
                 android:background="@layout/roundcorner"
                 android:drawableTop="@drawable/ic_add_a_photo_black_36dp"
                 android:onClick="onClickCamera"
@@ -81,7 +81,7 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginTop="60dp"
                 android:background="@layout/roundcorner"
                 android:drawableTop="@drawable/ic_subject_black_36dp"
                 android:onClick="onClickFill"
@@ -104,10 +104,11 @@
                 android:id="@+id/button3"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
+                android:layout_marginLeft="44dp"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:background="@layout/roundcorner"
                 android:drawableTop="@drawable/ic_collections_black_36dp"
-                android:onClick="onClickPhoto"
+                android:onClick="onClickGallery"
                 android:paddingTop="30dp"
                 android:paddingBottom="20dp"
                 android:text="Picture"
@@ -121,11 +122,11 @@
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:background="@layout/roundcorner"
-                android:drawableTop="@drawable/ic_add_a_photo_black_36dp"
-                android:onClick="onClickGallery"
+                android:drawableTop="@drawable/ic_my_location_black_36dp"
+                android:onClick="onClickMap"
                 android:paddingTop="30dp"
                 android:paddingBottom="20dp"
-                android:text="..."
+                android:text="Map"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.506"
                 app:layout_constraintStart_toEndOf="@+id/button"

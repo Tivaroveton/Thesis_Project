@@ -1,6 +1,7 @@
 package com.codemobiles.project_eva
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -9,9 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.os.bundleOf
+import com.codemobiles.project_eva.FeedActivity.Companion.condoList
+import kotlinx.android.synthetic.main.activity_menu.*
 
-import com.codemobiles.project_eva.dummy.DummyContent
-import com.codemobiles.project_eva.dummy.DummyContent.DummyItem
 
 /**
  * A fragment representing a list of Items.
@@ -46,7 +51,7 @@ class FeedFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyFeedRecyclerViewAdapter(DummyContent.ITEMS, listener)
+                adapter = MyFeedRecyclerViewAdapter( condoList, listener, context)
             }
         }
         return view
@@ -79,7 +84,13 @@ class FeedFragment : Fragment() {
      */
     interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: DummyItem?)
+        fun onListFragmentInteraction(item: Condo?, context: Context){
+            Toast.makeText(context, "It's ${item?.id}", Toast.LENGTH_SHORT)
+
+            val intent = Intent(context, MenuActivity::class.java)
+            val extras:Bundle = bundleOf("id" to item?.id)
+            startActivity(context, intent, extras)
+        }
     }
 
     companion object {
