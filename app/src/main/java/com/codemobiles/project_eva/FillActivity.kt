@@ -3,7 +3,9 @@ package com.codemobiles.project_eva
 
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.codemobiles.project_eva.Fill1Fragment.Companion.temp_roomPosition
@@ -53,8 +55,7 @@ class FillActivity : AppCompatActivity() {
         view_pager.offscreenPageLimit = 3
         view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(view_pager))
-
-
+        
 
     fun checkButtons(v: View) {
         val elasticCheckButton = v as ElasticCheckButton
@@ -226,6 +227,7 @@ class FillActivity : AppCompatActivity() {
         }
 
         postNewProject()
+        postNewProjectDM()
         isNewProject = 0
         finish()
     }
@@ -278,6 +280,64 @@ class FillActivity : AppCompatActivity() {
             dataArray[0].materialDesign,
             dataArray[0].maintananceCondition
         )
+
+        call?.enqueue(object : Callback<DataClass?> {
+
+            override fun onFailure(call: Call<DataClass>, t: Throwable) {
+                Toast.makeText(applicationContext, "Failed To connect", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onResponse(call: Call<DataClass>, response: Response<DataClass>) {
+                Toast.makeText(applicationContext, "Sucessfully Save", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        })
+
+    }
+
+    fun postNewProjectDM() {
+
+        val api = RetrofitClient.dataPost_create()
+        val call = api.postDataDM(
+            dataArray[0].floor,
+            dataArray[0].distanceFromBTS,
+            dataArray[0].buildingFloor,
+            dataArray[0].camFee,
+            dataArray[0].buildingAge,
+            dataArray[0].pricebyGov,
+            dataArray[0].materialDesign,
+            dataArray[0].units,
+            dataArray[0].areaRoom,
+            dataArray[0].lobby,
+            dataArray[0].lift,
+            dataArray[0].swimmingPool,
+            dataArray[0].fitness,
+            dataArray[0].suana,
+            dataArray[0].jacuzzi,
+            dataArray[0].steam,
+            dataArray[0].library,
+            dataArray[0].garden,
+            dataArray[0].kidplay,
+            dataArray[0].parklot,
+            dataArray[0].automateParklot,
+            dataArray[0].golfCourse,
+            dataArray[0].movieRoom,
+            dataArray[0].shop,
+            dataArray[0].roomPosition,
+            dataArray[0].roomType,
+            dataArray[0].roomView,
+            dataArray[0].buildingControlAct,
+            dataArray[0].districtID,
+            dataArray[0].subdistrictID,
+            dataArray[0].haveBTS,
+            dataArray[0].haveMRT,
+            dataArray[0].haveBRT,
+            dataArray[0].latitude,
+            dataArray[0].longtitude,
+            dataArray[0].buildingCondition
+        )
         call.enqueue(object : Callback<DataClass?> {
 
             override fun onFailure(call: Call<DataClass>, t: Throwable) {
@@ -293,6 +353,7 @@ class FillActivity : AppCompatActivity() {
         })
 
     }
+
 }
 
 
