@@ -2,18 +2,22 @@ package com.codemobiles.project_eva
 
 import android.Manifest
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toFile
+import com.codemobiles.project_eva.MyFeedRecyclerViewHolder.Companion.currCondo
 import com.jaiselrahman.filepicker.activity.FilePickerActivity
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import kotlinx.android.synthetic.main.activity_menu.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -25,18 +29,31 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class MenuActivity : AppCompatActivity() {
 
-//    private val textView: TextView = findViewById(R.id.menuHeader)
+    var textView: TextView? = null
     lateinit var mEasyImage: EasyImage
+
+//    val mPicture : ImageView = ImageView(findViewById<>(R.id.item_tab_menu_img))
+    var imageList = arrayOf<Int>(
+        R.drawable.condo_001,
+        R.drawable.condo_002,
+        R.drawable.condo_003,
+        R.drawable.condo_ex2
+    )
+//TOdo
+    val title:String? = currCondo.projectID
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        val id2 : Intent = Intent.getIntentOld("id")
-        val id:String? = intent.getStringExtra("id")
-//        textView.text = id2.toString()
+//        mPicture.setImageResource(imageList[1])
+
+        textView = this.menuHeader
+        textView!!.text = title
+
         checkRuntimePermission()
     }
 
@@ -152,18 +169,18 @@ class MenuActivity : AppCompatActivity() {
         val _bodyPassword = RequestBody.create(MediaType.parse("text/plain"), _password)
 
 
-        val call = RetrofitClient.client.postImageNodeJS(_body, _bodyUsername, _bodyPassword)
-        call.enqueue(object : Callback<ResponseBody> {
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Toast.makeText(applicationContext, t.toString(), Toast.LENGTH_LONG).show()
-            }
-
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                Toast.makeText(applicationContext, response.body()!!.string(), Toast.LENGTH_LONG)
-                    .show()
-            }
-
-        })
+//        val call = RetrofitClient.client.postImageNodeJS(_body, _bodyUsername, _bodyPassword)
+//        call.enqueue(object : Callback<ResponseBody> {
+//            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+//                Toast.makeText(applicationContext, t.toString(), Toast.LENGTH_LONG).show()
+//            }
+//
+//            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+//                Toast.makeText(applicationContext, response.body()!!.string(), Toast.LENGTH_LONG)
+//                    .show()
+//            }
+//
+//        })
 
     }
 }

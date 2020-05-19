@@ -22,9 +22,9 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         // Return a PlaceholderFragment (defined as a static inner class below).
 //        return PlaceholderFragment.newInstance(position + 1)
         when(position){
-            0-> return FeedFragment() //JSONFragment.getInstance()
-            1-> return FeedFragment()
-            else-> return FeedFragment()
+            0-> return Fill3Fragment.newInstance("Hello","1")
+            1-> return Fill2Fragment.newInstance("Hello","2")
+            else-> return Fill1Fragment.newInstance("Hello","3")
         }
     }
 

@@ -7,15 +7,13 @@ class Constants {
         // SQLite Database
         val DATABASE_NAME = "Account.db"
         val TABLE_NAME = "USERPASSWORD"
-        val COLUMN_USERNAME = "USERNAME"
-        val COLUMN_PASSWORD = "PASSWORD"
+        val USERNAME = "USERNAME"
+        val PASSWORD = "PASSWORD"
+        val staffID = "0"
+
         val COLUMN_LEVEL = "LEVEL"
         val IS_LOGGED_IN = "IS_LOGGED_IN"
 
-        // Feed Server
-        val FEED_TRAININGS = "training"
-        val FEED_FOODS = "foods"
-        val FEED_SUPERHEROS = "superhero"
-        val FEED_SONGS = "songs"
+
     }
 }

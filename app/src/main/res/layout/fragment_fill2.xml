@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- Content here -->
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="อาคารชุดสูง (ชั้น)"
+                app:suffixText="ชั้น">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textview_buildingFloor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="จำนวนห้องชุดในโครงการ (ยูนิต)"
+                app:suffixText="ยูนิต">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textview_unit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="อายุอาคาร  (ปี)">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/textview_buildingAge"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="สภาพอาคาร"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/radio_group_bdCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <RadioButton
+                        android:id="@+id/bdCondition_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="6dp"
+                        android:text="ใหม่" />
+
+                    <RadioButton
+                        android:id="@+id/bdCondition_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="6dp"
+                        android:text="ดี" />
+
+                    <RadioButton
+                        android:id="@+id/bdCondition_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="6dp"
+                        android:text="ปานกลาง" />
+
+                    <RadioButton
+                        android:id="@+id/bdCondition_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="6dp"
+                        android:text="เก่า" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--        Facilities-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_lobby"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="ล็อบบี้"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_lift"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="ลิฟต์"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_swimmingPool"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="สระว่ายน้ำ"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_suana"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="เซาน์น่า"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_jacuzzi"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="จากุซซี่"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_steam"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="สตีม"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_fitness"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="ฟิตเนส"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_library"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="ห้องสมุด"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_garden"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="สวน"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_kidplay"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="สนามเด็กเล่น"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_parklot"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="ที่จอดรถ"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_automateParklot"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="ที่จอดอัตโนมัติ"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_golfCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="สนามกอล์ฟ"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_movieRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="ห้องภาพยนต์"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elastic_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#40739e"
+                android:onClick="checkButtons"
+                android:padding="4dp"
+                android:text="ร้านค้า"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.4"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_isChecked="true"
+                app:checkButton_scale="0.9" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="อัตราค่าส่วนกลาง (บาท/ตรม.)"
+                app:suffixText="บาท/ตร.ม.">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/textview_camFee"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

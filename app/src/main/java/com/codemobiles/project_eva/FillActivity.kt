@@ -1,12 +1,31 @@
 package com.codemobiles.project_eva
 
-import android.app.DatePickerDialog
+
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_fill.*
-import java.text.SimpleDateFormat
+import androidx.fragment.app.FragmentActivity
+import com.codemobiles.project_eva.Fill1Fragment.Companion.temp_roomPosition
+import com.codemobiles.project_eva.Fill1Fragment.Companion.temp_roomType
+import com.codemobiles.project_eva.Fill1Fragment.Companion.temp_roomView
+import com.codemobiles.project_eva.Fill3Fragment.Companion.temp_bts
+import com.codemobiles.project_eva.Fill3Fragment.Companion.temp_btsName
+import com.codemobiles.project_eva.Fill3Fragment.Companion.temp_buildingControl
+import com.codemobiles.project_eva.Fill3Fragment.Companion.temp_district
+import com.codemobiles.project_eva.Fill3Fragment.Companion.temp_districtID
+import com.codemobiles.project_eva.Fill3Fragment.Companion.temp_subdistrict
+import com.codemobiles.project_eva.Fill3Fragment.Companion.temp_subdistrictID
+import com.codemobiles.project_eva.MyFeedRecyclerViewHolder.Companion.dataArray
+import com.google.android.material.tabs.TabLayout
+import com.skydoves.elasticviews.ElasticCheckButton
+import kotlinx.android.synthetic.main.activity_fill_tab.*
+import kotlinx.android.synthetic.main.fragment_fill1.*
+import kotlinx.android.synthetic.main.fragment_fill2.*
+import kotlinx.android.synthetic.main.fragment_fill3.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 class FillActivity : AppCompatActivity() {
@@ -15,355 +34,264 @@ class FillActivity : AppCompatActivity() {
     var textview_date: TextView? = null
     var cal = Calendar.getInstance()
 
+//    val id = intent.getStringExtra("id")
+
     companion object {
         var area = arrayOf<String>()
+        var btsmrt = arrayOf<String>()
+        var isNewProject = 0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.codemobiles.project_eva.R.layout.activity_fill)
+        setContentView(R.layout.activity_fill_tab)
+
+        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+        view_pager.adapter = sectionsPagerAdapter
+//        tabs.setupWithViewPager(viewPager)
+
+        view_pager.offscreenPageLimit = 3
+        view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
+        tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(view_pager))
 
 
-//        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-//        view_pager.adapter = sectionsPagerAdapter
 
-//        val for spinner
-        val spinner_district = findViewById<Spinner>(R.id.Spinner_district)
-        val spinner_area = findViewById<Spinner>(R.id.Spinner_area)
-        val district = resources.getStringArray(R.array.District)
-        area = resources.getStringArray(R.array.คลองสาน)
+    fun checkButtons(v: View) {
+        val elasticCheckButton = v as ElasticCheckButton
 
-        val Spinner_buildingControlAct = findViewById<Spinner>(R.id.Spinner_buildingControlAct)
-        val buildingControlAct = resources.getStringArray(R.array.`ข้อบังคับผัง`)
-
-        val Spinner_roomType = findViewById<Spinner>(R.id.Spinner_roomType)
-        val roomType = resources.getStringArray(R.array.`ประเภทห้อง`)
-
-        val Spinner_roomPosition = findViewById<Spinner>(R.id.Spinner_roomPosition)
-        val roomPosition = resources.getStringArray(R.array.`ตำแหน่งห้อง`)
-
-        val Spinner_roomView = findViewById<Spinner>(R.id.Spinner_roomPosition)
-        val roomView = resources.getStringArray(R.array.`วิวห้อง`)
-
-        if (spinner_district != null) {
-            val adapter = ArrayAdapter(
-                this,
-                R.layout.spinner_item, district
+        if (!elasticCheckButton.isChecked) {
+            elasticCheckButton.setCompoundDrawablesWithIntrinsicBounds(
+                R.drawable.check_elastic,
+                0,
+                0,
+                0
             )
-            spinner_district.adapter = adapter
+        } else {
+            elasticCheckButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
+        }
+    }
 
-            spinner_district.onItemSelectedListener = object :
-                AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View, position: Int, id: Long
-                ) {
-                    Toast.makeText(
-                        this@FillActivity,
-                        getString(R.string.selected_item) + " " +
-                                "" + district[position], Toast.LENGTH_SHORT
-                    ).show()
+    fun onClickBack(view: View) {
+        finish()
+    }
 
-                    if (district[position] == "คลองเตย") {
-                        area = resources.getStringArray(R.array.คลองเตย)
-                    }
-                    if (district[position] == "คลองสาน") {
-                        area = resources.getStringArray(R.array.คลองสาน)
-                    }
-                    if (district[position] == "คลองสามวา") {
-                        area = resources.getStringArray(R.array.คลองสามวา)
-                    }
-                    if (district[position] == "คันนายาว") {
-                        area = resources.getStringArray(R.array.`คันนายาว`)
-                    }
-                    if (district[position] == "จตุจักร") {
-                        area = resources.getStringArray(R.array.`จตุจักร`)
-                    }
-                    if (district[position] == "จอมทอง") {
-                        area = resources.getStringArray(R.array.จอมทอง)
-                    }
-                    if (district[position] == "ดอนเมือง") {
-                        area = resources.getStringArray(R.array.`ดอนเมือง`)
-                    }
-                    if (district[position] == "ดินแดง") {
-                        area = resources.getStringArray(R.array.`ดินแดง`)
-                    }
-                    if (district[position] == "ดุสิต") {
-                        area = resources.getStringArray(R.array.`ดุสิต`)
-                    }
-                    if (district[position] == "ตลิ่งชัน") {
-                        area = resources.getStringArray(R.array.`ตลิ่งชัน`)
-                    }
-                    if (district[position] == "ทวีวัฒนา") {
-                        area = resources.getStringArray(R.array.`ทวีวัฒนา`)
-                    }
-                    if (district[position] == "ทุ่งครุ") {
-                        area = resources.getStringArray(R.array.`ทุ่งครุ`)
-                    }
-                    if (district[position] == "ธนบุรี") {
-                        area = resources.getStringArray(R.array.`ธนบุรี`)
-                    }
-                    if (district[position] == "บางเขน") {
-                        area = resources.getStringArray(R.array.บางเขน)
-                    }
-                    if (district[position] == "บางแค") {
-                        area = resources.getStringArray(R.array.บางแค)
-                    }
-                    if (district[position] == "บางกอกใหญ่") {
-                        area = resources.getStringArray(R.array.`บางกอกใหญ่`)
-                    }
-                    if (district[position] == "บางกอกน้อย") {
-                        area = resources.getStringArray(R.array.`บางกอกน้อย`)
-                    }
-                    if (district[position] == "บางกะปิ") {
-                        area = resources.getStringArray(R.array.`บางกะปิ`)
-                    }
-                    if (district[position] == "บางขุนเทียน") {
-                        area = resources.getStringArray(R.array.`บางขุนเทียน`)
-                    }
-                    if (district[position] == "บางคอแหลม") {
-                        area = resources.getStringArray(R.array.บางคอแหลม)
-                    }
-                    if (district[position] == "คลองสาน") {
-                        area = resources.getStringArray(R.array.คลองสาน)
-                    }
-                    if (district[position] == "บางซื่อ") {
-                        area = resources.getStringArray(R.array.`บางซื่อ`)
-                    }
-                    if (district[position] == "บางนา") {
-                        area = resources.getStringArray(R.array.บางนา)
-                    }
-                    if (district[position] == "บางบอน") {
-                        area = resources.getStringArray(R.array.บางบอน)
-                    }
-                    if (district[position] == "บางพลัด") {
-                        area = resources.getStringArray(R.array.`บางพลัด`)
-                    }
-                    if (district[position] == "บางรัก") {
-                        area = resources.getStringArray(R.array.`บางรัก`)
-                    }
-                    if (district[position] == "บึงกุ่ม") {
-                        area = resources.getStringArray(R.array.`บึงกุ่ม`)
-                    }
-                    if (district[position] == "ปทุมวัน") {
-                        area = resources.getStringArray(R.array.`ปทุมวัน`)
-                    }
-                    if (district[position] == "ป้อมปราบศัตรูพ่าย") {
-                        area = resources.getStringArray(R.array.`ป้อมปราบศัตรูพ่าย`)
-                    }
-                    if (district[position] == "พญาไท") {
-                        area = resources.getStringArray(R.array.พญาไท)
-                    }
-                    if (district[position] == "พระโขนง") {
-                        area = resources.getStringArray(R.array.พระโขนง)
-                    }
-                    if (district[position] == "พระนคร") {
-                        area = resources.getStringArray(R.array.พระนคร)
-                    }
-                    if (district[position] == "ภาษีเจริญ") {
-                        area = resources.getStringArray(R.array.`ภาษีเจริญ`)
-                    }
-                    if (district[position] == "มีนบุรี") {
-                        area = resources.getStringArray(R.array.`มีนบุรี`)
-                    }
-                    if (district[position] == "ยานนาวา") {
-                        area = resources.getStringArray(R.array.ยานนาวา)
-                    }
-                    if (district[position] == "ราชเทวี") {
-                        area = resources.getStringArray(R.array.`ราชเทวี`)
-                    }
-                    if (district[position] == "ราษฎร์บูรณะ") {
-                        area = resources.getStringArray(R.array.`ราษฎร์บูรณะ`)
-                    }
-                    if (district[position] == "ลาดกระบัง") {
-                        area = resources.getStringArray(R.array.`ลาดกระบัง`)
-                    }
-                    if (district[position] == "ลาดพร้าว") {
-                        area = resources.getStringArray(R.array.`ลาดพร้าว`)
-                    }
-                    if (district[position] == "วังทองหลาง") {
-                        area = resources.getStringArray(R.array.`วังทองหลาง`)
-                    }
-                    if (district[position] == "วัฒนา") {
-                        area = resources.getStringArray(R.array.`วัฒนา`)
-                    }
-                    if (district[position] == "สวนหลวง") {
-                        area = resources.getStringArray(R.array.สวนหลวง)
-                    }
-                    if (district[position] == "สะพานสูง") {
-                        area = resources.getStringArray(R.array.`สะพานสูง`)
-                    }
-                    if (district[position] == "สัมพันธวงศ์") {
-                        area = resources.getStringArray(R.array.`สัมพันธวงศ์`)
-                    }
-                    if (district[position] == "สาทร") {
-                        area = resources.getStringArray(R.array.สาทร)
-                    }
-                    if (district[position] == "สายไหม") {
-                        area = resources.getStringArray(R.array.สายไหม)
-                    }
-                    if (district[position] == "หนองแขม") {
-                        area = resources.getStringArray(R.array.หนองแขม)
-                    }
-                    if (district[position] == "หนองจอก") {
-                        area = resources.getStringArray(R.array.หนองจอก)
-                    }
-                    if (district[position] == "หลักสี่") {
-                        area = resources.getStringArray(R.array.`หลักสี่`)
-                    }
-                    if (district[position] == "ห้วยขวาง") {
-                        area = resources.getStringArray(R.array.`ห้วยขวาง`)
-                    }
-                    var adapter = ArrayAdapter(
-                        this@FillActivity,
-                        R.layout.spinner_item, area
-                    )
-                    spinner_area.adapter = adapter
-                }
+    fun onClickSave(view: View) {
+        finish()
 
-                override fun onNothingSelected(parent: AdapterView<*>) {
-                    // write code to perform some action
-                }
+        //TextView from Fill3
+        dataArray[0].projectName = textview_reportNo.text.toString()
+        dataArray[0].buildingName = textview_buildingName.text.toString()
+        dataArray[0].projectName = textview_reportNo.text.toString()
+        dataArray[0].inspectiondate = text_view_date.text.toString()
+        //Maps from Fill3
+        dataArray[0].latitude = MapsActivity.condolatLng?.latitude!!.toFloat()
+        dataArray[0].longtitude = MapsActivity.condolatLng?.longitude!!.toFloat()
+        //Spinner from Fill3
+        dataArray[0].buildingControlAct = temp_buildingControl.toInt()
+        dataArray[0].districtID = temp_districtID
+        dataArray[0].districtName = temp_district
+        dataArray[0].subdistrictID = temp_subdistrictID
+        dataArray[0].subdistrictName = temp_subdistrict
+        var trainName = ""
+        when (temp_bts) {
+            "BTS" -> {
+                dataArray[0].haveBTS = 1
+                trainName = "BTS"
+            }
+            "MRT" -> {
+                dataArray[0].haveMRT = 1
+                trainName = "MRT"
+            }
+            "BRT" -> {
+                dataArray[0].haveBRT = 1
+                trainName = "BRT"
             }
         }
+        dataArray[0].nearestBTS = trainName + " " + temp_btsName
 
-        if (Spinner_buildingControlAct != null) {
-            val adapter = ArrayAdapter(
-                this,
-                R.layout.spinner_item, buildingControlAct
-            )
-            Spinner_buildingControlAct.adapter = adapter
+        //TextView from Fill2
+        dataArray[0].buildingFloor = textview_buildingFloor.text.toString().toInt()
+        dataArray[0].units = textview_unit.text.toString().toInt()
+        dataArray[0].buildingAge = textview_buildingAge.text.toString().toInt()
+        dataArray[0].camFee = textview_camFee.text.toString().toFloat()
+
+        //RadioButton from Fill2
+        when (true) {
+            bdCondition_4.isChecked -> dataArray[0].buildingCondition = 4
+            bdCondition_3.isChecked -> dataArray[0].buildingCondition = 3
+            bdCondition_2.isChecked -> dataArray[0].buildingCondition = 2
+            bdCondition_1.isChecked -> dataArray[0].buildingCondition = 1
         }
 
-        if (Spinner_roomType != null) {
-            val adapter = ArrayAdapter(
-                this,
-                R.layout.spinner_item, roomType
-            )
-            Spinner_roomType.adapter = adapter
+        //Elastic Button from Fill3
+        if (!elastic_lobby.isChecked) {
+            dataArray[0].lobby = 1
+        } else {
+            dataArray[0].lobby = 0
+        }
+        if (!elastic_lift.isChecked) {
+            dataArray[0].lift = 1
+        } else {
+            dataArray[0].lift = 0
+        }
+        if (!elastic_swimmingPool.isChecked) {
+            dataArray[0].swimmingPool = 1
+        } else {
+            dataArray[0].swimmingPool = 0
+        }
+        if (!elastic_suana.isChecked) {
+            dataArray[0].suana = 1
+        } else {
+            dataArray[0].suana = 0
+        }
+        if (!elastic_jacuzzi.isChecked) {
+            dataArray[0].jacuzzi = 1
+        } else {
+            dataArray[0].jacuzzi = 0
+        }
+        if (!elastic_steam.isChecked) {
+            dataArray[0].steam = 1
+        } else {
+            dataArray[0].steam = 0
+        }
+        if (!elastic_fitness.isChecked) {
+            dataArray[0].fitness = 1
+        } else {
+            dataArray[0].fitness = 0
+        }
+        if (!elastic_library.isChecked) {
+            dataArray[0].library = 1
+        } else {
+            dataArray[0].library = 0
+        }
+        if (!elastic_garden.isChecked) {
+            dataArray[0].garden = 1
+        } else {
+            dataArray[0].garden = 0
+        }
+        if (!elastic_kidplay.isChecked) {
+            dataArray[0].kidplay = 1
+        } else {
+            dataArray[0].kidplay = 0
+        }
+        if (!elastic_parklot.isChecked) {
+            dataArray[0].parklot = 1
+        } else {
+            dataArray[0].parklot = 0
+        }
+        if (!elastic_automateParklot.isChecked) {
+            dataArray[0].automateParklot = 1
+        } else {
+            dataArray[0].automateParklot = 0
+        }
+        if (!elastic_golfCourse.isChecked) {
+            dataArray[0].golfCourse = 1
+        } else {
+            dataArray[0].golfCourse = 0
+        }
+        if (!elastic_movieRoom.isChecked) {
+            dataArray[0].movieRoom = 1
+        } else {
+            dataArray[0].movieRoom = 0
+        }
+        if (!elastic_shop.isChecked) {
+            dataArray[0].shop = 1
+        } else {
+            dataArray[0].shop = 0
         }
 
-        if (Spinner_roomPosition != null) {
-            val adapter = ArrayAdapter(
-                this,
-                R.layout.spinner_item, roomPosition
-            )
-            Spinner_roomPosition.adapter = adapter
+        //TextView from Fill1
+        dataArray[0].floor = text_view_floor.text.toString()
+        dataArray[0].areaRoom = textview_roomArea.text.toString().toFloat()
+        dataArray[0].pricebyGov = textview_priceByGov.text.toString().toInt()
+        dataArray[0].fireInsurance = textview_fireInsurance.text.toString().toInt()
+
+        //Spinner from Fill1
+        dataArray[0].roomType = temp_roomType + 1
+        dataArray[0].roomPosition = temp_roomPosition + 1
+        dataArray[0].roomView = temp_roomView + 1
+
+        //Radio Button From Fill1
+        when (true) {
+            materialDesign_4.isChecked -> dataArray[0].materialDesign = 4
+            materialDesign_3.isChecked -> dataArray[0].materialDesign = 3
+            materialDesign_2.isChecked -> dataArray[0].materialDesign = 2
+            materialDesign_1.isChecked -> dataArray[0].materialDesign = 1
+        }
+        when (true) {
+            roomStat_4.isChecked -> dataArray[0].maintananceCondition = 4
+            roomStat_3.isChecked -> dataArray[0].maintananceCondition = 3
+            roomStat_2.isChecked -> dataArray[0].maintananceCondition = 2
+            roomStat_1.isChecked -> dataArray[0].maintananceCondition = 1
         }
 
-        if (Spinner_roomView != null) {
-            val adapter = ArrayAdapter(
-                this,
-                R.layout.spinner_item, roomView
-            )
-            Spinner_roomView.adapter = adapter
-        }
+        postNewProject()
+        isNewProject = 0
+        finish()
+    }
 
+    fun postNewProject() {
 
-        //        tabs.setupWithViewPager(viewPager)
+        val api = RetrofitClient.dataPost_create()
+        val call = api.postData(
+            dataArray[0].projectName,
+            dataArray[0].buildingName,
+            dataArray[0].inspectiondate,
+            dataArray[0].latitude,
+            dataArray[0].longtitude,
+            dataArray[0].districtID,
+            dataArray[0].districtName,
+            dataArray[0].subdistrictID,
+            dataArray[0].subdistrictName,
+            dataArray[0].haveBTS,
+            dataArray[0].haveMRT,
+            dataArray[0].haveBRT,
+            dataArray[0].nearestBTS,
+            dataArray[0].distanceFromBTS,
+            dataArray[0].buildingFloor,
+            dataArray[0].units,
+            dataArray[0].buildingAge,
+            dataArray[0].buildingCondition,
+            dataArray[0].lobby,
+            dataArray[0].lift,
+            dataArray[0].swimmingPool,
+            dataArray[0].fitness,
+            dataArray[0].suana,
+            dataArray[0].jacuzzi,
+            dataArray[0].steam,
+            dataArray[0].library,
+            dataArray[0].garden,
+            dataArray[0].kidplay,
+            dataArray[0].parklot,
+            dataArray[0].automateParklot,
+            dataArray[0].golfCourse,
+            dataArray[0].movieRoom,
+            dataArray[0].shop,
+            dataArray[0].camFee,
+            dataArray[0].floor,
+            dataArray[0].areaRoom,
+            dataArray[0].pricebyGov,
+            dataArray[0].fireInsurance,
+            dataArray[0].roomType,
+            dataArray[0].roomPosition,
+            dataArray[0].roomView,
+            dataArray[0].materialDesign,
+            dataArray[0].maintananceCondition
+        )
+        call.enqueue(object : Callback<DataClass?> {
 
-//        view_pager.offscreenPageLimit = 3
-//        view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
-//        tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(view_pager))
-
-
-//        Date Picker
-        textview_date = this.text_view_date_1
-        button_date = this.button_date_1
-        textview_date!!.text = "--/--/----"
-
-        // create an OnDateSetListener
-        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
-            override fun onDateSet(
-                view: DatePicker, year: Int, monthOfYear: Int,
-                dayOfMonth: Int
-            ) {
-                cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, monthOfYear)
-                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                updateDateInView()
+            override fun onFailure(call: Call<DataClass>, t: Throwable) {
+                Toast.makeText(applicationContext, "Failed To connect", Toast.LENGTH_SHORT)
+                    .show()
             }
-        }
 
-        // when you click on the button, show DatePickerDialog that is set with OnDateSetListener
-        button_date!!.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                DatePickerDialog(
-                    this@FillActivity,
-                    dateSetListener,
-                    // set DatePickerDialog to point to today's date when it loads up
-                    cal.get(Calendar.YEAR),
-                    cal.get(Calendar.MONTH),
-                    cal.get(Calendar.DAY_OF_MONTH)
-                ).show()
+            override fun onResponse(call: Call<DataClass>, response: Response<DataClass>) {
+                Toast.makeText(applicationContext, "Sucessfully Save", Toast.LENGTH_SHORT)
+                    .show()
             }
 
         })
 
-
-// Get radio group selected item using on checked change listener
-        radio_group_lobby.setOnCheckedChangeListener(
-            RadioGroup.OnCheckedChangeListener { group, checkedId ->
-                val radio: RadioButton = findViewById(checkedId)
-//                Toast.makeText(applicationContext," On checked change :"+
-//                        " ${radio.text}",
-//                    Toast.LENGTH_SHORT).show()
-            })
-
-        // Get the selected radio button text using radio button on click listener
-        fun radio_button_click(view: View) {
-            // Get the clicked radio button instance
-            val radio: RadioButton = findViewById(radio_group_lobby.checkedRadioButtonId)
-        }
-
-        fun onClickSave(view: View) {
-
-//        var id: Int = radio_group_lobby.checkedRadioButtonId
-//        var string:String = ""
-
-
-        }
-
-        //    fun checkIfhave(view: View,id: Int,string: String){
-//        if (id != -1) { // If any radio button checked from radio group
-//            // Get the instance of radio button using id
-//            val radio: RadioButton = findViewById(id)
-//            Toast.makeText(
-//                applicationContext, "On button click :" +
-//                        " ${radio.text}",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        } else {
-//            // If no radio button checked in this radio group
-//            Toast.makeText(
-//                applicationContext, "On button click :" +
-//                        " nothing selected",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-//    }
-//
-//    fun re_0or1 (boolean: String){
-//        if (boolean == "มี"){
-//            boolean "0,"
-//        }
-//    }
-        fun onClickChangeDate() {
-            DatePickerDialog(
-                this@FillActivity,
-                dateSetListener,
-                // set DatePickerDialog to point to today's date when it loads up
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)
-            ).show()
-        }
-    }
-
-    private fun updateDateInView() {
-        val myFormat = "dd/MM/yyyy" // mention the format you need
-        val sdf = SimpleDateFormat(myFormat, Locale.US)
-        textview_date!!.text = sdf.format(cal.getTime())
     }
 }
 

@@ -48,90 +48,97 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/item_list_image"
+                android:id="@+id/item_tab_menu_img.0"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/condo_ex2" />
+                android:src="@drawable/condo_001" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="44dp"
-                android:layout_marginTop="60dp"
-                android:background="@layout/roundcorner"
-                android:drawableTop="@drawable/ic_add_a_photo_black_36dp"
-                android:onClick="onClickCamera"
-                android:paddingTop="30dp"
-                android:paddingBottom="20dp"
-                android:text="camera"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_list_image" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin"
-                android:layout_marginTop="60dp"
-                android:background="@layout/roundcorner"
-                android:drawableTop="@drawable/ic_subject_black_36dp"
-                android:onClick="onClickFill"
-                android:paddingTop="30dp"
-                android:paddingBottom="20dp"
-                android:text="fill"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.506"
-                app:layout_constraintStart_toEndOf="@+id/button"
-                app:layout_constraintTop_toBottomOf="@+id/item_list_image" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+
+                    android:background="@layout/roundcorner"
+                    android:drawableTop="@drawable/ic_add_a_photo_black_36dp"
+                    android:onClick="onClickCamera"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="20dp"
+                    android:text="camera"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_list_image" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:background="@layout/roundcorner"
+                    android:drawableTop="@drawable/ic_subject_black_36dp"
+                    android:onClick="onClickFill"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="20dp"
+                    android:text="fill"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.506"
+                    app:layout_constraintStart_toEndOf="@+id/button"
+                    app:layout_constraintTop_toBottomOf="@+id/item_list_image" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@layout/roundcorner"
+                    android:drawableTop="@drawable/ic_collections_black_36dp"
+                    android:onClick="onClickGallery"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="20dp"
+                    android:text="Picture"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_list_image" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:background="@layout/roundcorner"
+                    android:drawableTop="@drawable/ic_my_location_black_36dp"
+                    android:onClick="onClickMap"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="20dp"
+                    android:text="Map"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.506"
+                    app:layout_constraintStart_toEndOf="@+id/button"
+                    app:layout_constraintTop_toBottomOf="@+id/item_list_image" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="44dp"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@layout/roundcorner"
-                android:drawableTop="@drawable/ic_collections_black_36dp"
-                android:onClick="onClickGallery"
-                android:paddingTop="30dp"
-                android:paddingBottom="20dp"
-                android:text="Picture"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_list_image" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@layout/roundcorner"
-                android:drawableTop="@drawable/ic_my_location_black_36dp"
-                android:onClick="onClickMap"
-                android:paddingTop="30dp"
-                android:paddingBottom="20dp"
-                android:text="Map"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.506"
-                app:layout_constraintStart_toEndOf="@+id/button"
-                app:layout_constraintTop_toBottomOf="@+id/item_list_image" />
-        </LinearLayout>
 
 
     </LinearLayout>

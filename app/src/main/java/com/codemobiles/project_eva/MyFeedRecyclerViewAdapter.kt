@@ -6,15 +6,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat.startActivity ////
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_feed.view.*
-
+import com.codemobiles.project_eva.MyFeedRecyclerViewHolder.Companion.currCondo
+import com.codemobiles.project_eva.MyFeedRecyclerViewHolder.Companion.currcondoCode
+import com.codemobiles.project_eva.MyFeedRecyclerViewHolder.Companion.dataArray
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 //class MyFeedRecyclerViewAdapter(
@@ -81,19 +85,28 @@ import kotlinx.android.synthetic.main.fragment_feed.view.*
 //    }
 //
 //}
-class MyFeedRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+class MyFeedRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+    View.OnClickListener {
 
     private var itemClickListener: ItemClickListener? = null
 
     var mIdView: TextView
     var mContentView: TextView
-    var layout_feed:LinearLayout
+    val mPicture: ImageView
+    var layout_feed: LinearLayout
 
+    companion object {
+        lateinit var currCondo: ProjectRow
+        var dataArray = arrayListOf<DataRow>()
+        lateinit var currcondoCode :String
+
+    }
 
     init {
 
         mIdView = itemView.findViewById(R.id.item_list_title)
         mContentView = itemView.findViewById(R.id.item_list_subtitle)
+        mPicture = itemView.findViewById(R.id.item_list_image)
         layout_feed = itemView.findViewById(R.id.layout_feed)
         layout_feed.setOnClickListener(this)
 
@@ -104,7 +117,12 @@ class MyFeedRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
     }
 }
 
-class MyFeedRecyclerViewAdapter(private val mValues: MutableList<Condo>, private val mListener: FeedFragment.OnListFragmentInteractionListener?, private val context: Context) :
+class MyFeedRecyclerViewAdapter(
+    private val mValues: List<ProjectRow>,
+    private val mPicture: Array<Int>,
+    private val mListener: FeedFragment.OnListFragmentInteractionListener?,
+    private val context: Context
+) :
     RecyclerView.Adapter<MyFeedRecyclerViewHolder>() {
 
 
@@ -124,23 +142,68 @@ class MyFeedRecyclerViewAdapter(private val mValues: MutableList<Condo>, private
 
     override fun onBindViewHolder(holder: MyFeedRecyclerViewHolder, position: Int) {
         val item = mValues[position]
-        holder.mIdView.text = item.title
-        holder.mContentView.text = item.subtitle
+        currcondoCode = item.projectName
+//        var picture = item.tabpicture?.toInt()
 
-        setOnClickLayout(holder.layout_feed,item.title!!)
+        val pjName :String = item.projectName.split(".")[0]
+        holder.mIdView.text = pjName
+        holder.mContentView.text = item.buildingName
+        holder.mPicture.setImageResource(mPicture[position%4])
+
+        setOnClickLayout(holder.layout_feed, item.projectName!!, item.inspectiondate!!)
 
     }
 
-
-
-    private fun setOnClickLayout(layout: LinearLayout,id:String) {
+    private fun setOnClickLayout(layout: LinearLayout, title: String, id: String) {
         layout.setOnClickListener {
-            Toast.makeText(context,"Hi $id",Toast.LENGTH_SHORT).show()
+            for (item in FeedActivity.condoList) {
+                if (id == item.projectName) {
+                    currCondo = item
+                }
+            }
+
+            getData()
+
+//            val intent = Intent(context, MenuActivity::class.java)
+            val intent = Intent(context, FillActivity::class.java)
+//            intent.putExtra("title", title);
+//            intent.putExtra("id", id);
+            val extras: Bundle? = bundleOf("id" to id, "title" to title)
+
+//            val extras: Bundle? = intent.getExtras()
+//            extras?.putString(title, id)
+            startActivity(context, intent, extras)
+
+
         }
+    }
+
+    private fun getData() {
+        val api = RetrofitClient.login_create()
+        val call = api.getData(currcondoCode)
+        call.enqueue(object : Callback<DataClass> {
+
+            override fun onFailure(call: Call<DataClass>, t: Throwable) {
+                Toast.makeText(context, "Failed To connect", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<DataClass>, response: Response<DataClass>) {
+                Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+                dataArray.clear()
+                response.body()?.rows?.let { dataArray.addAll(it) }
+
+            }
+
+        })
     }
 
 
     override fun getItemCount(): Int {
-        return mValues.size
+        val limit: Int = 20
+        if (mValues.size > limit) {
+            return limit;
+        } else {
+            return mValues.size
+        }
     }
 }

@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.core.os.bundleOf
 import com.codemobiles.project_eva.FeedActivity.Companion.condoList
 import kotlinx.android.synthetic.main.activity_menu.*
+import okhttp3.internal.Internal.instance
 
 
 /**
@@ -27,6 +28,13 @@ class FeedFragment : Fragment() {
 
     // TODO: Customize parameters
     private var columnCount = 1
+
+    var imageList = arrayOf<Int>(
+        R.drawable.condo_001,
+        R.drawable.condo_002,
+        R.drawable.condo_003,
+        R.drawable.condo_ex2
+    )
 
     private var listener: OnListFragmentInteractionListener? = null
 
@@ -51,7 +59,7 @@ class FeedFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyFeedRecyclerViewAdapter( condoList, listener, context)
+                adapter = MyFeedRecyclerViewAdapter( condoList,imageList, listener, context)
             }
         }
         return view
@@ -95,6 +103,8 @@ class FeedFragment : Fragment() {
 
     companion object {
 
+
+
         // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
 
@@ -106,5 +116,16 @@ class FeedFragment : Fragment() {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }
             }
+
+        private var instance:FeedFragment? = null
+        fun getInstance():FeedFragment{
+            if(instance == null){
+                instance = FeedFragment()
+            }
+
+            return instance!!
+        }
     }
+
+
 }

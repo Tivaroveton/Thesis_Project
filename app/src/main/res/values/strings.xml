@@ -7,13 +7,6 @@
 
     <string name="selected_item">Selected item:</string>
 
-
-    <string-array name="Languages">
-        <item>Java</item>
-        <item>Py</item>
-        <item>sth</item>
-    </string-array>
-
     <string-array name="RoomType">
         <item>ห้องชุดพักอาศัย</item>
         <item>บ้านเดี่ยว</item>
@@ -21,55 +14,16 @@
     </string-array>
 
     <string-array name="District">
-        <item>คลองสาน</item>
-        <item>คลองสามวา</item>
-        <item>คลองเตย</item>
-        <item>จตุจักร</item>
-        <item>จอมทอง</item>
-        <item>ดอนเมือง</item>
-        <item>ดินแดง</item>
-        <item>ดุสิต</item>
-        <item>ตลิ่งชัน</item>
-        <item>ทวีวัฒนา</item>
-        <item>ทุ่งครุ</item>
-        <item>ธนบุรี</item>
-        <item>บางกอกน้อย</item>
-        <item>บางกอกใหญ่</item>
-        <item>บางกะปิ</item>
-        <item>บางขุนเทียน</item>
-        <item>บางคอแหลม</item>
-        <item>บางซื่อ</item>
-        <item>บางนา</item>
-        <item>บางบอน</item>
-        <item>บางพลัด</item>
-        <item>บางรัก</item>
-        <item>บางเขน</item>
-        <item>บางแค</item>
-        <item>บึงกุ่ม</item>
-        <item>ปทุมวัน</item>
-        <item>ประเวศ</item>
-        <item>ป้อมปราบศัตรูพ่าย</item>
-        <item>พญาไท</item>
-        <item>พระนคร</item>
-        <item>พระโขนง</item>
-        <item>ภาษีเจริญ</item>
-        <item>มีนบุรี</item>
-        <item>ยานนาวา</item>
-        <item>ราชเทวี</item>
-        <item>ราษฎร์บูรณะ</item>
-        <item>ลาดกระบัง</item>
-        <item>ลาดพร้าว</item>
-        <item>วังทองหลาง</item>
-        <item>วัฒนา</item>
-        <item>สวนหลวง</item>
-        <item>สะพานสูง</item>
-        <item>สัมพันธวงศ์</item>
-        <item>สาทร</item>
-        <item>สายไหม</item>
-        <item>หนองจอก</item>
-        <item>หนองแขม</item>
-        <item>หลักสี่</item>
-        <item>ห้วยขวาง</item>
+        <item>วัฒนา</item><item>สาทร</item><item>ดุสิต</item><item>บางนา</item><item>บางแค</item>
+        <item>พญาไท</item><item>จอมทอง</item><item>ดินแดง</item><item>ธนบุรี</item><item>บางบอน</item>
+        <item>บางรัก</item><item>บางเขน</item><item>ประเวศ</item><item>พระนคร</item><item>สายไหม</item>
+        <item>คลองสาน</item><item>คลองเตย</item><item>จตุจักร</item><item>ทุ่งครุ</item><item>บางกะปิ</item>
+        <item>บางซื่อ</item><item>บางพลัด</item><item>บึงกุ่ม</item><item>ปทุมวัน</item><item>พระโขนง</item>
+        <item>มีนบุรี</item><item>ยานนาวา</item><item>ราชเทวี</item><item>สวนหลวง</item><item>หนองจอก</item>
+        <item>หนองแขม</item><item>หลักสี่</item><item>คันนายาว</item><item>ดอนเมือง</item><item>ตลิ่งชัน</item>
+        <item>ทวีวัฒนา</item><item>ลาดพร้าว</item><item>สะพานสูง</item><item>ห้วยขวาง</item><item>คลองสามวา</item>
+        <item>บางคอแหลม</item><item>ภาษีเจริญ</item><item>ลาดกระบัง</item><item>บางกอกน้อย</item><item>บางกอกใหญ่</item>
+        <item>วังทองหลาง</item><item>บางขุนเทียน</item><item>ราษฎร์บูรณะ</item><item>สัมพันธวงศ์</item><item>ป้อมปราบศัตรูพ่าย</item>
     </string-array>
 
     <!--Area Of District-->
@@ -343,10 +297,13 @@
     </string-array>
 
     <string-array name="ข้อบังคับผัง">
-        <item>สีน้ำตาล (ที่อยู่อาศัยหนาแน่นมาก) </item>
-        <item>สีส้ม (ที่อยู่อาศัยหนาแน่นปานกลาง) </item>
-        <item>สีเหลือง (ที่อยู่อาศัยหนาแน่นน้อย)</item>
         <item>สีแดง  (พาณิชยกรรม) </item>
+        <item>สีเหลือง (ที่อยู่อาศัยหนาแน่นน้อย)</item>
+        <item>สีส้ม (ที่อยู่อาศัยหนาแน่นปานกลาง) </item>
+        <item>สีน้ำตาล (ที่อยู่อาศัยหนาแน่นมาก) </item>
+
+
+
     </string-array>
 
     <string-array name="ประเภทห้อง">
@@ -354,6 +311,7 @@
         <item>1 ห้องนอน/1 ห้องน้ำ</item>
         <item>2 ห้องนอน/1 ห้องน้ำ</item>
         <item>2 ห้องนอน/2 ห้องน้ำ</item>
+        <item>2 ห้องนอน/3 ห้องน้ำ</item>
         <item>3 ห้องนอน/3 ห้องน้ำ</item>
         <item>Duplex</item>
         <item>Penthouse</item>
@@ -362,8 +320,9 @@
 
     <string-array name="ตำแหน่งห้อง">
         <item>ห้องกลาง</item>
-        <item>ห้องมุม</item>
         <item>ห้องริม</item>
+        <item>ห้องมุม</item>
+
     </string-array>
 
     <string-array name="วิวห้อง">
@@ -372,6 +331,163 @@
         <item>วิวสระว่ายน้ำ/สวน</item>
         <item>วิวแม่น้ำ</item>
     </string-array>
+
+    <string-array name="na">
+        <item>-</item>
+    </string-array>
+
+    <string-array name="haveBTS">
+        <item>-</item>
+        <item>BTS</item>
+        <item>MRT</item>
+        <item>BRT</item>
+        <item>Airport Rail Link</item>
+    </string-array>
+
+
+    <string-array name="bts">
+        <item>-</item>
+        <item>มหาวิทยาลัยเกษตรศาสตร์</item>
+        <item>เสนานิคม</item>
+        <item>รัชโยธิน</item>
+        <item>พหลโยธิน 24</item>
+        <item>ห้าแยกลาดพร้าว</item>
+        <item>หมอชิต</item>
+        <item>สะพานควาย</item>
+        <item>อารีย์</item>
+        <item>สนามเป้า</item>
+        <item>อนุสาวรีย์ชัยสมรภูมิ</item>
+        <item>พญาไท</item>
+        <item>ราชเทวี</item>
+        <item>สยาม</item>
+
+        <item>ชิดลม</item>
+        <item>เพลินจิต</item>
+        <item>นานา</item>
+        <item>อโศก</item>
+        <item>พร้อมพงษ์</item>
+        <item>ทองหล่อ</item>
+        <item>เอกมัย</item>
+        <item>พระโขนง</item>
+        <item>อ่อนนุช</item>
+        <item>บางจาก</item>
+        <item>ปุณณวิถี</item>
+        <item>อุดมสุข</item>
+        <item>บางนา</item>
+        <item>แบริ่ง</item>
+        <item>สำโรง</item>
+        <item>ปู่เจ้า</item>
+        <item>ช้างเอราวัณ</item>
+        <item>โรงเรียนนายเรือ</item>
+        <item>ปากน้ำ</item>
+        <item>ศรีนครินทร์</item>
+        <item>แพรกษา</item>
+        <item>สายลวด</item>
+        <item>เคหะฯ</item>
+
+        <item>สนามกีฬาแห่งชาติ</item>
+        <item>ราชดำริ</item>
+        <item>ศาลาแดง</item>
+        <item>ช่องนนทรี</item>
+        <item>สุรศักดิ์</item>
+        <item>สะพานตากสิน</item>
+        <item>กรุงธนบุรี</item>
+        <item>วงเวียนใหญ่</item>
+        <item>โพธิ์นิมิตร</item>
+        <item>ตลาดพลู</item>
+        <item>วุฒากาศ</item>
+        <item>บางหว้า</item>
+    </string-array>
+
+    <string-array name="mrt">
+        <item>-</item>
+        <item>ท่าพระ</item>
+        <item>จรัญฯ</item>
+        <item>ไฟฉาย</item>
+        <item>บางขุนนท์</item>
+        <item>บางยี่ขัน</item>
+        <item>สิรินธร</item>
+        <item>บางพลัด</item>
+        <item>บางอ้อ</item>
+        <item>บางโพ</item>
+        <item>เตาปูน</item>
+        <item>บางซื่อ</item>
+        <item>กำแพงเพชร</item>
+        <item>สวนจตุจักร</item>
+        <item>พหลโยธิน</item>
+        <item>ลาดพร้าว</item>
+        <item>รัชดาภิเษก</item>
+        <item>สุทธิสาร</item>
+        <item>ห้วยขวาง</item>
+        <item>ศูนย์วัฒนธรรมแห่งประเทศไทย</item>
+        <item>พระราม 9</item>
+        <item>เพชรบุรี</item>
+        <item>สุขุมวิท</item>
+        <item>ศูนย์ประชุมแห่งชาติสิริกิติ์</item>
+        <item>คลองเตย</item>
+        <item>ลุมพินี</item>
+        <item>สีลม</item>
+        <item>สามย่าน</item>
+        <item>หัวลำโพง</item>
+        <item>วัดมังกร</item>
+        <item>สามยอด</item>
+        <item>สนามไชย</item>
+        <item>อิสรภาพ</item>
+        <item>บางไพ่</item>
+        <item>บางหว้า</item>
+        <item>เพชรเกษม 48</item>
+        <item>ภาษีเจริญ</item>
+        <item>บางแค</item>
+        <item>หลักสอง</item>
+
+        <item>คลองบางไผ่</item>
+        <item>ตลาดบางใหญ่</item>
+        <item>สามแยกบางใหญ่</item>
+        <item>บางพลู</item>
+        <item>บางรักใหญ่</item>
+        <item>บางรักน้อยท่าอิฐ</item>
+        <item>ไทรม้า</item>
+        <item>สะพานพระนั่งเกล้า</item>
+        <item>แยกนนทบุรี 1</item>
+        <item>บางกระสอ</item>
+        <item>ศูนย์ราชการนนทบุรี</item>
+        <item>กระทรวงสาธาณสุข</item>
+        <item>แยกติวานนท์</item>
+        <item>วงศ์สว่าง</item>
+        <item>บางซ่อน</item>
+        <item>เตาปูน</item>
+    </string-array>
+
+    <string-array name="brt">
+        <item>-</item>
+        <item>สาทร</item>
+        <item>อาคารสงเคราะห์</item>
+        <item>เทคนิคกรุงเทพ</item>
+        <item>ถนนจันทน์</item>
+        <item>นราราม 3</item>
+        <item>วัดด่าน</item>
+        <item>วัดปริวาส</item>
+        <item>วัดดอกไม้</item>
+        <item>สะพานพระราม 9</item>
+        <item>เจริญราษฎร์</item>
+        <item>สะพานพระราม 3</item>
+        <item>ราชพฤกษ์</item>
+    </string-array>
+
+    <string-array name="airport_rail_link">
+        <item>-</item>
+        <item>สุวรรณภูมิ</item>
+        <item>ลาดกระบัง</item>
+        <item>บ้านทับช้าง</item>
+        <item>หัวหมาก</item>
+        <item>รามคำแหง</item>
+        <item>มักกะสัน</item>
+        <item>ราชปรารภ</item>
+        <item>พญาไท</item>
+    </string-array>
+
     <string name="title_activity_maps">Map</string>
+
+
 
 </resources>
